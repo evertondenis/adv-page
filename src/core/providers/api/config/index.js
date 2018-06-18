@@ -1,7 +1,7 @@
 const getConfig = () => {
 
   const config = {
-    baseUrl: 'http://localhost:8080',
+    baseUrl: 'http://localhost:3001',
     appId: '1',
     appKey: 'c702755043e60135bfe5021e75abe44c',
     channelId: '13f11433-0ab6-450c-a08d-e38938679de1',
