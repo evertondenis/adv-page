@@ -1,8 +1,9 @@
 import React, { PureComponent } from 'react'
 import Ads from 'containers/Adverts/Ads'
-import AdvertsProvider from 'core/providers/adverts'
+// import AdvertsProvider from 'core/providers/adverts'
 import { Preloader } from 'components'
 import { StyledList } from './styled.js'
+import mock from './mock'
 
 class List extends PureComponent {
   state = {
@@ -15,13 +16,17 @@ class List extends PureComponent {
   }
 
   loadAdverts = () => {
-    AdvertsProvider.all()
+    this.setState({
+      isLoading: false,
+      adverts: mock.adverts.content
+    })
+    /* AdvertsProvider.all()
       .then((result) => {
         this.setState({
           isLoading: false,
           adverts: result.content
         })
-    })
+    }) */
   }
 
   render() {

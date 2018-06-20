@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react'
-import HistoricProvider from 'core/providers/historic'
+// import HistoricProvider from 'core/providers/historic'
 import { Preloader } from 'components'
 import StyledHistoric from './styled'
-
+import mock from './mock'
 
 class Historic extends PureComponent {
   state = {
@@ -15,13 +15,17 @@ class Historic extends PureComponent {
   }
 
   loadHistoric = () => {
-    HistoricProvider.all()
+    this.setState({
+      isLoading: false,
+      historic: mock.historic.content
+    })
+    /* HistoricProvider.all()
       .then((result) => {
         this.setState({
           isLoading: false,
           historic: result.content
         })
-    })
+    }) */
   }
 
   renderData = ({ title, total }) => (
@@ -33,7 +37,6 @@ class Historic extends PureComponent {
 
   render() {
     const { historic, isLoading } = this.state
-
     return (
       <div className="container">
         <Preloader active={isLoading}/>
